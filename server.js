@@ -1,35 +1,35 @@
 const express = require('express');
 const http = require('http');
-const sockets = require('socket.io');
+const socketio = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
 
-const io = socketio(server);
+const io = socketio(server)
 
-//routes
-app.get('/', (req, res)=> {
+
+app.get('/', (req,res) => {
     res.sendFile(__dirname+ '/index.html');
 })
 
-//socket connection handler
-io.on('connection', (socket) => {
-    console.log('A new user connected to the chat');
 
-    //handle incoming messages
+io.on('connection' , (socket) => {
+    console.log('A new user connected');
+
+    
     socket.on('message', (message) => {
         console.log('Message received: ', message);
-        //broadcasting the message to all connected users
+
         io.emit('message', message)
     });
 
-    //disconneced handler
+   
     socket.on('disconnect', () => {
-        console.log('A user disconneced')
+        console.log('A user disconnected')
     })
 });
 
 const PORT = 3000;
 server.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}`);
+    console.log('Server listening on PORT 3000');
 })
