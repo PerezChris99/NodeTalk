@@ -40,6 +40,10 @@ To set up NodeTalk on your local machine, follow these steps:
     
 3.  npm install
     
-4.  npm start
+4.  nodemon server.js
     
 5.  http://localhost:3000
+
+## Dont Forget
+* add a custom script to the package.json file to run the server with nodemon
+* "dev": "nodemon server.js"
