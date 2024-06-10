@@ -34,7 +34,7 @@ Installation
 
 To set up NodeTalk on your local machine, follow these steps:
 
-1.  git clone https://github.com/yourusername/nodetalk.git
+1.  git clone https://github.com/PerezChris99/NodeTalk
     
 2.  cd nodetalk
     
